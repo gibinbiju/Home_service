@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+    {% block body_block%}
+{% load staticfiles %}
+<h1>Register Here</h1>
+
+<div class="container">
+    <div class="jumbotron">
+        <form action="{% url 'register' %}" method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+
+                <input type="submit" value="RegisterHere">
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
