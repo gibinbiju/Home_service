@@ -1,33 +1,92 @@
-from django.forms import ModelForm
+from django import forms
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render, redirect
-
+from django.views import View
 # Create your views here.
 from django.views.generic import CreateView
-
-from HSSapp.models import User
-
-
-class RegForm(ModelForm):
-    class Meta():
-        model=User
-        fields=['username','password','email','phone','state','district','area']
+from .forms import newuserform, login, profileform,locationform
+from .models import User, RequestWork, JobCategory, Profile, Area, Feedback, Notification,Location
 
 
-class reg(CreateView):
-    model = User
-    fields = ['username', 'password', 'email', 'phone', 'state', 'district', 'area']
-    template_name = 'HSSapp/registration.html'
-    success_url = reverse_lazy('home')
+def Register(request):
+    if request.method == "GET":
+        form = newuserform()
+    if request.method == "POST":
+        form = newuserform(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            print("Success")
+            # return index(request)
+            return redirect('login')
+        else:
+            print('error from invalid')
+    return render(request, 'HSSapp/registration.html', {'form': form})
 
-    # def get(self,request,*args,**kwargs):
-    #     context={}
-    #     context['form']=self.form_class
-    #     return render(request,self.template_name,context=context)
-    #
-    # def post(self,request,*args,**kwargs):
-    #     form=self.form_class(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #     return redirect('register')
+
+def loginview(request):
+    if request.method == 'GET':
+        form = login()
+        print("inside get")
+        return render(request, 'HSSapp/login.html', {'form': form})
+    if request.method == 'POST':
+        form = login(request.POST)
+        print('inside post')
+        if form.is_valid():
+            print("form is valid")
+            # form.save(commit=True)
+
+            name = form.cleaned_data['username']
+            pwd = form.cleaned_data['password']
+
+            print(name, pwd)
+            print("login successfull")
+            request.session['user'] = name
+            return render(request, 'HSSapp/mypage.html', {'form': form, 'user': name})
+
+    return render(request, 'home.html')
+
+
+def logoutview(request):
+    request.session['user'] = None
+    return loginview(request)
+
+
+def profilecreate(request):
+    if request.method == 'GET':
+        form = profileform()
+        return render(request, 'HSSapp/profile.html', {'form': form})
+    if request.method == 'POST':
+        form = profileform(request.POST)
+        if form.is_valid():
+            print('inside post')
+            u = User.objects.get(username=request.session['user'])
+            fname = form.cleaned_data['firstname']
+            lname = form.cleaned_data['lastname']
+            phone = form.cleaned_data['phone']
+            job = form.cleaned_data['job']
+            p = Profile(name=u, firstname=fname, lastname=lname, phone=phone, job=job)
+            p.save()
+            return render(request, 'HSSapp/mypage.html')
+        return render(request, 'HSSapp/profile.html', {'form': form})
+    return render(request, 'mypage.html')
+
+def locationcreate(request):
+    if request.method == 'GET':
+        form = locationform()
+        print('inside location get')
+        return render(request, 'HSSapp/location.html', {'form': form})
+    if request.method == 'POST':
+        form = locationform(request.POST)
+        if form.is_valid():
+            print('inside post')
+            u = User.objects.get(username=request.session['user'])
+            state = form.cleaned_data['state']
+            district = form.cleaned_data['district']
+            area = form.cleaned_data['area']
+            place = form.cleaned_data['place']
+            p = Location(name=u, state=state, district=district, area=area, place=place)
+            p.save()
+            return render(request, 'HSSapp/mypage.html')
+        return render(request, 'HSSapp/location.html', {'form': form})
+    return render(request, 'mypage.html')

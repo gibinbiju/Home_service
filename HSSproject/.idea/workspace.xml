@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="644f2ee6-8d2c-4522-bcae-71cfee17dd3e" name="Default Changelist" comment="" />
+    <list default="true" id="644f2ee6-8d2c-4522-bcae-71cfee17dd3e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HSSapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/HSSapp/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HSSapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/HSSapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HSSapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HSSapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/HSSapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HSSapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/HSSapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HSSapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/HSSapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,22 +28,24 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/gitme" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1UCWstdrAt3pfYdeWcBjOTByU52" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gitpro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Django/expense_manager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates" />
-      <recent name="$PROJECT_DIR$/templates/HSSapp" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/HSSapp" />
       <recent name="$PROJECT_DIR$/static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/templates/HSSapp" />
     </key>
   </component>
   <component name="RunDashboard">
